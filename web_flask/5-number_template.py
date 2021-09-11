@@ -20,8 +20,10 @@ def c_text():
 
 
 @app.route("/python/", strict_slashes=False)
-@app.route("/python/(<text>)", strict_slashes=False)
-def pytho_text(text='is cool'):
+@app.route("/python/<text>", strict_slashes=False)
+def pythoniscool(text='is cool'):
+    """python is cool
+    """
     return "Python {}".format(text.replace('_', ' '))
 
 
@@ -32,7 +34,8 @@ def intnumber(n):
 
 @app.route("/number_template/<int:n>")
 def int_template(n):
-    return render_template('5-number.html', number = n)
+    return render_template('5-number.html', number=n)
+
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000)
