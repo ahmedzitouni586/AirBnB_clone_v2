@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.url_map.strict_slashes = False
 
 
-@app.route("/states_list")
+@app.route("/states_list", strict_slashes=False)
 def state_list():
     return render_template("7-states_list.html",
                            data=storage.all(State).values())
@@ -20,4 +20,4 @@ def storage_close(var=None):
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0' port=5000)
